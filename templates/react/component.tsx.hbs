@@ -1,0 +1,18 @@
+{{#if hasStyles}}
+import styles from './{{name}}.module.css';
+{{/if}}
+
+interface {{name}}Props {
+{{#each props}}
+  {{this.name}}: {{this.type}};
+{{/each}}
+{{#unless props}}
+  children?: React.ReactNode;
+{{/unless}}
+}
+
+export function {{name}}({ {{#each props}}{{this.name}}{{#unless @last}}, {{/unless}}{{/each}}{{#unless props}}children{{/unless}} }: {{name}}Props) {
+  return (
+    {{{html}}}
+  );
+}

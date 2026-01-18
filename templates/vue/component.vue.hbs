@@ -1,0 +1,21 @@
+<script setup lang="ts">
+{{#if props}}
+interface Props {
+{{#each props}}
+  {{this.name}}: {{this.type}};
+{{/each}}
+}
+
+defineProps<Props>();
+{{/if}}
+</script>
+
+<template>
+  {{{html}}}
+</template>
+
+{{#if css}}
+<style scoped>
+{{{css}}}
+</style>
+{{/if}}

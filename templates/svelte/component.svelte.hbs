@@ -1,0 +1,13 @@
+<script lang="ts">
+{{#each props}}
+  export let {{this.name}}: {{this.type}};
+{{/each}}
+</script>
+
+{{{html}}}
+
+{{#if css}}
+<style>
+{{{css}}}
+</style>
+{{/if}}
