@@ -32,7 +32,26 @@ await browser.close();
 | `manager.ts` | Browser lifecycle (launch, navigate, close) |
 | `picker.ts` | Element selection and highlighting |
 | `extract.ts` | HTML/CSS extraction from elements |
+| `style-reducer.ts` | CSS reduction (70-90% smaller) |
 | `index.ts` | Public exports |
+
+## Style Reducer
+
+The `StyleReducer` class reduces extracted CSS by 70-90%:
+
+```typescript
+import { StyleReducer } from './browser';
+
+const reducer = new StyleReducer();
+const minimalCss = reducer.reduce(computedStyles);
+// 4.2KB → 487B (88% reduction)
+```
+
+It removes:
+- Browser default values
+- Vendor prefixes (-webkit-, -moz-, etc.)
+- Inherited styles (optional)
+- Non-essential properties
 
 ## Dependencies
 
