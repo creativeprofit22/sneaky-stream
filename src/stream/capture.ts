@@ -40,7 +40,7 @@ export class ScreenshotCapture {
         });
 
         this.server.broadcastScreenshot(screenshot);
-      } catch (err) {
+      } catch {
         // Page might be navigating, ignore
       }
     };
